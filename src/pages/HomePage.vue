@@ -1,5 +1,13 @@
 <template>
   <div class="home-container">
+        <!-- Welcome Popup -->
+        <div v-if="showWelcomePopup" class="welcome-popup">
+      <div class="welcome-popup-content">
+        <h2>Welcome to the Configuration Dashboard!</h2>
+        <p>You can manage your configurations from here.</p>
+        <button @click="closeWelcomePopup" class="close-btn">Close</button>
+      </div>
+    </div>
     <div class="header">
     <!-- Profile icon -->
     <div class="profile-container" @click="togglePopup">
@@ -62,6 +70,9 @@
 
   
   <script setup>
+  import '@/assets/layout.css';   // Layout styles
+import '@/assets/buttons.css';  // Button styles
+import '@/assets/responsive.css';  // Responsive styles
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
   import { useRouter } from 'vue-router';
@@ -199,6 +210,9 @@ const editConfiguration = async (key) => {
   
   // Fetch configurations on mount
   onMounted(() => {
+    setTimeout(() => {
+    showWelcomePopup.value = false;
+  }, 5000);
     fetchConfigurations();
   });
   
@@ -206,243 +220,5 @@ const editConfiguration = async (key) => {
   
   
   <style scoped>
-  .logout-button{
-    background-color:#7e57c2 ;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #11172a;
-    color: white;
-    padding: 20px;
-  }
-  
-  .header {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    font-weight: bold;
-    border-bottom: 2px solid #7e57c2;
-  }
-  
-  .table {
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 20px;
-  }
-  
-  .row {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px;
-    border-bottom: 1px solid #7e57c2;
-  }
-  
-  .parameter-key, .value, .description, .create-date {
-    flex: 1;
-    text-align:left
-  }
-
-  
-  .actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 10px;
-  }
-  
-  .add-form {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 20px;
-  }
-  
-  .input-field {
-    flex: 1;
-    margin-right: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #1b2a47;
-    color: white;
-  }
-  
-  .add-btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #0056b3;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .add-btn:hover {
-    background-color: #007abf;
-  }
-  
-  .edit-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 6px;
-  }
-  
-  .delete-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 6px;
-  }
-  
-  .edit-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .delete-btn:hover {
-    background-color: #c82333;
-  }
-
-.create-date {
-    cursor: pointer; /* Specifically making the Create Date header clickable */
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.profile-container {
-  position: relative;
-  cursor: pointer;
-}
-
-.profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.popup {
-  position: absolute;
-  top: 70px; /* Adjust the position based on your layout */
-  right: 20px;
-  background-color: #1b2a47;
-  border: 1px solid #7e57c2;
-  border-radius: 8px;
-  padding: 10px;
-  width:fit-content;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.popup-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.email-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.email-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
-.logout-button {
-  width: 100%;
-  padding: 8px 0;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.logout-button:hover {
-  background-color: #c82333;
-}
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-    flex-wrap: wrap; /* Allow items to wrap inside the row */
-    padding: 10px 0;
-  }
-
-  .parameter-key, .value, .description, .create-date {
-    width: 100%; /* Take full width of container in mobile view */
-    display: flex;
-    justify-content: space-between; /* Ensure label is followed by its value */
-    padding: 5px 0;
-  }
-
-  .parameter-key::before {
-    content: 'Parameter Key: ';
-    font-weight: bold;
-  }
-  
-  .value::before {
-    content: 'Value: ';
-    font-weight: bold;
-  }
-
-  .description::before {
-    content: 'Description: ';
-    font-weight: bold;
-  }
-
-  .create-date::before {
-    content: 'Create Date: ';
-    font-weight: bold;
-  }
-
-  .actions::before {
-    content: 'Actions: ';
-    font-weight: bold;
-  }
-  .actions{
-    flex-direction: column;
-    gap: 10px;  
-  }
-
-  .parameter-key, .value, .description, .create-date, .actions {
-    padding: 5px 0; /* Reduce padding for better fit */
-  }
-
-  .input-field {
-    flex: 1 100%; /* Make input fields full width */
-    margin-right: 0;
-  }
-
-  .add-btn {
-    width: 100%; /* Make Add button full width */
-  }
-
-  .actions {
-    justify-content: flex-start;
-  }
-
-  .add-form {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-
   </style>
   

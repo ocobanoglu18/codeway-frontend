@@ -1,0 +1,61 @@
+/* buttons.css */
+
+/* Add button */
+.add-btn {
+width: 10%;
+height:fit-content;
+    border-radius: 5px;
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .add-btn:hover {
+    background-color: #007abf;
+  }
+  
+  /* Edit button */
+  .edit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 6px;
+  }
+  
+  .edit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Delete button */
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 6px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Logout button */
+  .logout-button {
+    background-color: #7e57c2;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .logout-button:hover {
+    background-color: #c82333;
+  }
+  .actions{
+    display: flex;
+    flex-direction: row;
+    gap:10px
+  }

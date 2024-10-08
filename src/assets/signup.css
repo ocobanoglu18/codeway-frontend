@@ -1,0 +1,102 @@
+/* signup.css */
+
+/* Sign-up page container with animation */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #0d0f23;
+    color: white;
+    padding: 20px;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    animation: fadeIn 1.2s ease-in;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    background-color: #1a1b41;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 1; /* Ensure form is visible */
+    animation: fadeIn 1.5s ease-in;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    opacity: 1;
+  }
+  
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #7e57c2;
+    background-color: #101233;
+    color: #fff;
+    font-size: 14px;
+    animation: fadeIn 1.8s ease-in;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+  
+  .submit-btn {
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 2s ease-in;
+  }
+  
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+    animation: fadeIn 2.2s ease-in;
+  }
+  
+  footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+    animation: fadeIn 2.5s ease-in;
+  }
+  

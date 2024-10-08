@@ -1,0 +1,62 @@
+/* responsive.css */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+  
+    .parameter-key, .value, .description, .create-date {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+    }
+  
+    .parameter-key::before {
+      content: 'Parameter Key: ';
+      font-weight: bold;
+    }
+  
+    .value::before {
+      content: 'Value: ';
+      font-weight: bold;
+    }
+  
+    .description::before {
+      content: 'Description: ';
+      font-weight: bold;
+    }
+  
+    .create-date::before {
+      content: 'Create Date: ';
+      font-weight: bold;
+    }
+  
+    .actions::before {
+      content: 'Actions: ';
+      font-weight: bold;
+    }
+  
+    .actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .input-field {
+      flex: 1 100%;
+      margin-right: 0;
+    }
+  
+    .add-btn {
+      width: 100%;
+    }
+  
+    .add-form {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
